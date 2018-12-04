@@ -1,29 +1,32 @@
 Answer each question in a written format
 
 1. What does semantic HTML mean?
-
+  Simply using HTML elements based on what they are versus how they may appear on a webpage. An example of semantic HTML would be using an h1 tag for the main heading or a p tag for paragraph text. Tags that define how the text should look such as b and i tags are not semantic. 
 2. What is the box model?
-
+  This describes the layout of elements in CSS. Every element consists of the content, padding, border, and a margin, in that order. The content is the real content of the element which includes a width and height. The padding wraps around the content and extends the content area to include the element's padding. The border wraps around the padding and extends the padding area to include the element's borders. The margin is what extends the border to include the empty area between the element and its neighbors. Padding pushes inward whereas margin pushes outward.
 3. What is the difference between IDs and Classes?
-
+  Classes can be used multiple times to style multiple elements while IDs can only be used once to style a single element. IDs are also more specific than classes when referring to CSS specificity. When writing CSS, IDs are written with a pound sign followed by the id name (#id-name{}) and classes are written with a period and the class name (.class-name{}).
 4. What is z-index (CSS property) useful for?
-
+  It is useful when stacking elements. The z-index allows us to change the default stacking order of elements. However, this only works if elements have a specified position.
 5. Summarize what the keyword 'this' is used for?
-
+  The this keyword refers to the object it is bound to. Although, it can have different values depending on where it is used. When used by itself or in a non-strict function, it refers to the global object or the window. In a strict function, this will return undefined. In event handlers, it refers to that HTML element. To refer this to an object, you can use the methods call and apply.
 6. What is a callback? What are common uses for callbacks in JavaScript?
-
+  A callback is a function that isn't run until another function runs. Common uses are found when interacting with RESTful APIs, using them with event handlers, or in setTimeout functions. In RESTful APIs, you write a callback function to be executed after you receive a response from the API. With event handlers, you create callback functions to be executed upon a user clicking or hovering over an element. 
 7. What is a closure and why is it useful?
-
+  It is a function inside of another function where the inner function receives the outer function's scope. To access the inner function you must return it or pass it to another function. Callbacks can be closures but are not always closures. They are useful for creating stateful functions where the return value relies on the internal state.
 8. How does a prototype work?
-
+  A prototype exists on every JavaScript function. It is used mainly for inheritance and is an object with a constructor property by default. This allows us to add methods and properties on a function's prototype to make them available to the instances of that specific function. You can access the function's prototype by using functionName.prototype. This will run pointing back to the function on which the prototype object is a property.
 9. Describe what a component-based framework/library is?
-
+  This refers to the idea of putting together components to create an app. By using component-based apps, frameworks and libraries have made components into self-sustaining systems that are reusable in your app. It also allows components to be updated individually without affecting other components. An example of a component-based framework and libraries are AngularJS, VueJS, and ReactJS. 
 10. What is the component lifecycle in React?
-
+  The component lifecycle refers to a component being mounted and rendered to the DOM, updating and rendering those changes to the DOM, and unmounting and being removed from the DOM. React utilizes lifecycle methods such as componentDidMount, componentDidUpdate, and componentWillUnmount to accomplish and interact each of these lifecycles.
 11. What is REST? (not just a description of the acronym)
-
+  REST is a pattern of defining routes that many applications follow to make it reliable and predictable for us to interact with other apps. It also means web applications should use HTTP as it was originally envisioned. This means using the CRUD concept as well, by using get(read) requests for lookups, and post(create), put(update), and delete for data creation, mutation, and deletion. 
 12. Name three common ways of getting data from a request (in Express.JS):
-
+  The three common ways are using req.body, req.query, and req.params. 
+  - Req.body - data is passed via a data object to the request body but doesn't exist in the request URL and is used on PUT and POST requests. 
+  - Req.query - data is passed to the request URL query parameters, although it is optional to pass a query. Queries are usually used to search for data and are simply accounted for if they are passed. They are written with a query parameter followed by a question mark then an equal sign. (example.com/example/q?=data)
+  - Req.params - data is also being passed via the request URL but to path segments of the URL. Unlike queries, params are not optional if making a request requiring parameters. Params are written match the route definition. example - route definition (example.com/example/:id), example route - (example.com/example/idnumber)
 
 
 -- =====================
@@ -37,9 +40,14 @@ email varchar(255)
 13. Given the Schema above, write the following four basic CRUD db queries using postgres syntax
 
 -Get all users:
-
+SELECT * FROM users;
 -Create a new user with the name of 'your name' and an email of 'fake@fake.com':
-
+INSERT INTO users (name, email)
+VALUES ('your name', fake@fake.com);
 -Update the newly created user's name to 'Bobby Boy':
-
+UPDATE users
+SET name = 'Bobby Boy'
+WHERE email = 'fake@fake.com';
 -Delete the newly updated user:
+DELETE from users
+WHERE name = 'Bobby Boy';
